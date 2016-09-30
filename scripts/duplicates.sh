@@ -42,22 +42,33 @@ authorAliases['caktux'] = 'Vincent Gariepy'
 authorAliases['chriseth'] = 'Christian Reitwiessner'
 authorAliases['Christian'] = 'Christian Reitwiessner'
 authorAliases['CJentzsch'] = 'Christoph Jentzsch'
+authorAliases['csibbitt'] = 'Chris Sibbitt'
 authorAliases['debris'] = 'Marek Kotewicz'
 authorAliases['debris-berlin'] = 'Marek Kotewicz'
 authorAliases['Dimitry'] = 'Dimitry Khokhlov'
 authorAliases['Dmitry K'] = 'Dimitry Khokhlov'
 authorAliases['ethdev'] = 'Marek Kotewicz'
+authorAliases['foobar'] = 'Chul Su Park'
 authorAliases['gluk256'] = 'Vlad Gluhovsky'
 authorAliases['Greg'] = 'Greg Colvin'
+authorAliases['jin'] = 'Jinius Tu'
 authorAliases['Marian OANCΞA'] = 'Marian Oancea'
 authorAliases['ethdev zug'] = 'Marek Kotewicz'
 authorAliases['Gav Wood'] = 'Gavin Wood'
+authorAliases['Genoil'] = 'Jan Willem Penterman'
 authorAliases['U-SVZ13\Arkady'] = 'Arkadiy Paronyan'
 authorAliases['liana'] = 'Liana Husikyan'
 authorAliases['LianaHus'] = 'Liana Husikyan'
+authorAliases['null_radix'] = 'Martin Becze'
+authorAliases['obscuren'] = 'Jeffrey Wilcke'
+authorAliases['rain'] = 'Rain'
+authorAliases['rainbeam'] = 'Rain'
+authorAliases['smartbitcoin'] = 'Jinius Tu'
 authorAliases['subtly'] = 'Alex Leverington'
 authorAliases['unknown'] = 'Marek Kotewicz'
 authorAliases['vbuterin'] = 'Vitalik Buterin'
+authorAliases['wanderer'] = 'Martin Becze'
+authorAliases['Wins Vega'] = 'Dimitry Khokhlov'
 authorAliases['winsvega'] = 'Dimitry Khokhlov'
 authorAliases['yann300'] = 'Yann Levreau'
 
@@ -79,7 +90,8 @@ with open('log.txt') as logFile:
         if match:
             date = match.group(1)
             if commitAlreadySeen.has_key(author + date):
-                print "Filtering out .... " + author + " - " + date
+                pass
+                #print "Filtering out .... " + author + " - " + date
             else:
                 commitAlreadySeen[author + date] = 1
                 if not commitCounts.has_key(author):
@@ -88,5 +100,5 @@ with open('log.txt') as logFile:
                     commitCounts[author] = commitCounts[author] + 1
 
 
-for key in sorted(commitCounts, key=commitCounts.get):  #sorted(commitCounts.items()):
+for key in sorted(commitCounts, key=commitCounts.get, reverse=True):  #sorted(commitCounts.items()):
     print key + " has " + str(commitCounts[key]) + " commits"
